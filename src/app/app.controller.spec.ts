@@ -1,22 +1,23 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import type { TestingModule } from "@nestjs/testing";
+import { Test } from "@nestjs/testing";
+import { AllMoviesController } from "src/all/allMovies.controller";
+import { AllMoviesService } from "src/all/allMovies.service";
 
-describe('AppController', () => {
-  let appController: AppController;
+describe("AllMoviesController", () => {
+  let allMoviesController: AllMoviesController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+      controllers: [AllMoviesController],
+      providers: [AllMoviesService],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    allMoviesController = app.get<AllMoviesController>(AllMoviesController);
   });
 
-  describe('root', () => {
+  describe("getHello", () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(allMoviesController.getHello()).toBe("Hello World!");
     });
   });
 });
